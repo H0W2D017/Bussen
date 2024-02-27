@@ -12,3 +12,4 @@ C:\Users\hansc\source\repos\Bussen\obj\Debug\net8.0\refint\Bussen.dll
 C:\Users\hansc\source\repos\Bussen\obj\Debug\net8.0\Bussen.pdb
 C:\Users\hansc\source\repos\Bussen\obj\Debug\net8.0\Bussen.genruntimeconfig.cache
 C:\Users\hansc\source\repos\Bussen\obj\Debug\net8.0\ref\Bussen.dll
+C:\Users\hansc\source\repos\Bussen\obj\Debug\net8.0\Bussen.sourcelink.json

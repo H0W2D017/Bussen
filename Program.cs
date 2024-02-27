@@ -106,52 +106,35 @@ namespace Bussen
                 switch (choice)
                 {
                     case 1:
-                        addPassenger();
+                        AddPassenger();
                         break;
                     case 2:
-                        printBuss();
+                        PrintBuss();
                         break;
                     case 3:
                         //  ANROPA METODEN FÖR ATT BERÄKNA TOTAL ÅLDER OCH SKRIV UT RESULTATET
-                        Console.WriteLine("The total age of all passengers on the buss is: " + calcTotalAge().ToString());
+                        Console.WriteLine("The total age of all passengers on the buss is: " + CalcTotalAge().ToString());
                         break;
                     case 4:
-                        Console.WriteLine("The average age of all passengers on the buss is: " + calcAverageAge().ToString());
+                        Console.WriteLine("The average age of all passengers on the buss is: " + CalcAverageAge().ToString());
                         break;
                     case 5:
-                        Console.WriteLine("The oldest passenger on the buss is {0}", showMaxAge());
+                        Console.WriteLine("The oldest passenger on the buss is {0}", ShowMaxAge());
                         break;
                     case 6:
-                        findAge();
+                        FindAge();
                         break;
                     case 7:
-                        sortBuss();
+                        SortBuss();
                         break;
                     case 8:
-                        printSex();
+                        PrintSex();
                         break;
                     case 9:
-                        Console.WriteLine("Passengers in the buss are the following");
-                        Console.WriteLine();
-                        foreach (Passenger p in passagerare)
-                        {
-                            if (p != null)
-                            {
-                                Console.WriteLine("Name: " + p.name.ToString() +", Position: " + p.id.ToString());
-                            }
-                        }
-                        int posToPoke = -1;
-                        while (posToPoke == -1)
-                        {
-                            Console.WriteLine();
-                            Console.WriteLine("Enter position to poke");
-                            int PokePos = int.TryParse(Console.ReadLine(), out posToPoke) ? posToPoke : -1;
-                        }
-                        Console.WriteLine(poke(posToPoke));
-
+                        Poke();
                         break;
                     case 10:
-                        gettingOff();
+                        GettingOff();
                         break;
                     case 11:
                         FillBuss();
@@ -168,7 +151,7 @@ namespace Bussen
             }
         }
 
-        public void addPassenger()
+        public void AddPassenger()
         {
             //Lägg till passagerare. Här skriver man då in ålder men eventuell annan information.
             //Om bussen är full kan inte någon passagerare stiga på
@@ -238,7 +221,7 @@ namespace Bussen
             return -1;
         }
 
-        public void printBuss()
+        public void PrintBuss()
         {
             //Skriv ut alla värden ur vektorn. Alltså - skriv ut alla passagerare
 
@@ -253,7 +236,7 @@ namespace Bussen
             }
         }
 
-        public int calcTotalAge()
+        public int CalcTotalAge()
         {
             //Beräkna den totala åldern. 
             //För att koden ska fungera att köra så måste denna metod justeras, alternativt att man temporärt sätter metoden med void
@@ -277,7 +260,7 @@ namespace Bussen
 
         //Metoder för betyget C
 
-        public double calcAverageAge()
+        public double CalcAverageAge()
         {
             //Betyg C
             //Beräkna den genomsnittliga åldern. Kanske kan man tänka sig att denna metod ska returnera något annat värde än heltal?
@@ -286,13 +269,13 @@ namespace Bussen
             //  SKAPA EN VARIABEL FÖR MEDELÅLDER
             double averageAge = 0;
             //  BERÄKNA MEDELÅLDER
-            averageAge = (double)calcTotalAge() / antalPassagerare;
+            averageAge = (double)CalcTotalAge() / antalPassagerare;
             averageAge = Math.Round(averageAge, 2);
             //  SKRIV UT MEDELÅLDER
             return averageAge;
         }
 
-        public int showMaxAge()
+        public int ShowMaxAge()
         {
             //Betyg C
             //ta fram den passagerare med högst ålder. Detta ska ske med egen kod och är rätt klurigt.
@@ -313,7 +296,7 @@ namespace Bussen
             return maxAge;
         }
 
-        public void findAge()
+        public void FindAge()
         {
             //Visa alla positioner med passagerare med en viss ålder
             //Man kan också söka efter åldersgränser - exempelvis 55 till 67
@@ -340,7 +323,7 @@ namespace Bussen
 
         }
 
-        public void sortBuss()
+        public void SortBuss()
         {
             //Sortera bussen efter ålder. Tänk på att du inte kan ha tomma positioner "mitt i" vektorn.
             //Beskrivs i läroboken på sidan 147 och framåt (kodexempel på sidan 159)
@@ -405,7 +388,7 @@ namespace Bussen
         //NOTERA! För betyget A ska du inte jobba med heltal i vektorn utan objekt av klassen passagerare (som du skapar)
 
 
-        public void printSex()
+        public void PrintSex()
         {
             //Betyg A
             //Denna metod är nödvändigtvis inte svårare än andra metoder men kräver att man skapar en klass för passagerare.
@@ -452,14 +435,31 @@ namespace Bussen
                 Console.WriteLine(p.ToString());
             }
         }
-        public string poke(int posToPoke)
+        public void Poke()
         {
             //Betyg A
             //Vilken passagerare ska vi peta på?
             //Denna metod är valfri om man vill skoja till det lite, men är också bra ur lärosynpunkt.
-            //Denna metod ska anropa en passagerares metod för hur de reagerar om man petar på dom (eng: poke)
+            //Denna metod ska anropa en passagerares metod för hur de reagerar om man petar på dom (eng: Poke)
             //Som ni kan läsa i projektbeskrivningen så får detta beteende baseras på ålder och kön
-            
+
+            Console.WriteLine("Passengers in the buss are the following");
+            Console.WriteLine();
+            foreach (Passenger p in passagerare)
+            {
+                if (p != null)
+                {
+                    Console.WriteLine("Name: " + p.name.ToString() + ", Position: " + p.id.ToString());
+                }
+            }
+            int posToPoke = -1;
+            while (posToPoke == -1)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Enter position to Poke");
+                int PokePos = int.TryParse(Console.ReadLine(), out posToPoke) ? posToPoke : -1;
+            }
+
             // SKAPA EN VARIABEL FÖR VILKEN PASSAGERARE SOM SKA PETAS PÅ
             Passenger passengerToPoke = null;
 
@@ -475,33 +475,33 @@ namespace Bussen
                         //  OM PASSAGERAREN ÄR UNDER 10 ÅR
                         if (p.age < 10)
                         {
-                            return "The passenger is a child and starts to cry";
+                            Console.WriteLine("The passenger is a child and starts to cry");
                         }
                         //  OM PASSAGERAREN ÄR MELLAN 10 OCH 20 ÅR
                         else if (p.age >= 10 && p.age < 20)
                         {
-                            return "The passenger is a teenager and gets angry";
+                            Console.WriteLine("The passenger is a teenager and gets angry");
                         }
                         //  OM PASSAGERAREN ÄR MELLAN 20 OCH 60 ÅR
                         else if (p.age >= 20 && p.age < 60)
                         {
-                            return "The passenger is an adult and gets annoyed";
+                            Console.WriteLine("The passenger is an adult and gets annoyed");
                         }
                         //  OM PASSAGERAREN ÄR ÖVER 60 ÅR
                         else if (p.age >= 60)
                         {
-                            return "The passenger is an elder and gets scared";
+                            Console.WriteLine("The passenger is an elder and gets scared");
                         }
                     }
                 }
             }
 
             //  OM INGEN PASSAGERARE HITTAS RETURNERA ETT FELMEDDELANDE
-            return "No passenger found";
+            Console.WriteLine( "No passenger found");
 
         }
 
-        public void gettingOff()
+        public void GettingOff()
         {
             //Betyg A
             //En passagerare kan stiga av

@@ -45,8 +45,9 @@ namespace Bussen
         public static string[] RandomPassengerFirstNames = new string[] { "Kalle", "Pelle", "Nisse", "Olle", "Stina", "Anna", "Eva", "Lisa", "Karin", "Sara", "Eva", "Stefan", "Göran", "Bosse" };
         public static string[] RandomPassengerLastNAmes = new string[] { "Johansson", "Nilsson", "Larsson", "Karlsson", "Andersson", "Jansson", "Hansson", "Lindberg", "Lundberg", "Lindström", "Lundström", "Lindqvist", "Lundqvist", "Lindgren", "Lundgren" };
 
-        public Passenger[] passagerare = new Passenger[20];
+        public Passenger[] passagerare = new Passenger[maxPassagerare];
         public int antalPassagerare;
+        public static int maxPassagerare = 30;
 
 
         public void Run()
@@ -372,7 +373,7 @@ namespace Bussen
             }
 
             //  SÄTT PASSAGERARE TILL EN NY TOM ARRAY
-            passagerare = new Passenger[20];
+            passagerare = new Passenger[maxPassagerare];
             //  LOOPA IGENOM LISTAN OCH LÄGG TILL ELEMENTEN I DEN TOMMA ARRAYEN
             for (int i = 0; i < passengerList.Count; i++)
             {
@@ -528,7 +529,7 @@ namespace Bussen
             //  SKAPA EN VARIABEL FÖR VILKEN PASSAGERARE SOM SKA LÄMNA BUSS
             int posToLeave = -1;
             //  LOOPA TILLS ANVÄNDAREN HAR LÄST IN ETT KORREKT VÄRDE
-            while (posToLeave == -1 || posToLeave > 20)
+            while (posToLeave == -1 || posToLeave > maxPassagerare)
             {
                 //  BE ANVÄNDAREN OM VILKEN POSITION SOM SKA LÄMNA BUSS
                 Console.WriteLine("Enter position to leave");

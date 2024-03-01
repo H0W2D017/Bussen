@@ -172,7 +172,7 @@ namespace Bussen
 
                 //  BE ANVÄNDAREN OM ÅLDERN PÅ PASSAGERAREN OCH SPARA DET
                 int age = 0;
-                while (age == 0)
+                while (age <= 0)
                 {
                     Console.WriteLine("Enter passenger age");
                     age = int.TryParse(Console.ReadLine(), out age) ? age : 0;
@@ -180,10 +180,10 @@ namespace Bussen
 
                 //  BE ANVÄNDAREN OM KÖNET PÅ PASSAGERAREN OCH SPARA DET
                 char sex = ' ';
-                while (sex == ' ')
+                while (sex != 'M' && sex != 'F')
                 {
                     Console.WriteLine("Enter passenger sex (M/F)");
-                    sex = char.TryParse(Console.ReadLine(), out  sex) ? sex : ' ';
+                    sex = char.TryParse(Console.ReadLine().ToUpper(), out  sex) ? sex : ' ';
                 }
 
                 //  LÄS IN PASSAGERARENS PLATS I BUSSEN

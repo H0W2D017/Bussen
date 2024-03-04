@@ -338,13 +338,7 @@ namespace Bussen
 
             //  SKRIV UT BUSS ARRAYEN SOM NU ÄR SORTERAD
             Console.WriteLine("Bus sorted by age");
-            foreach (Passenger p in passagerare)
-            {
-                if (p != null)
-                {
-                    Console.WriteLine(p.ToString());
-                }
-            }
+            PrintPassengerList();
         }
 
         private Passenger[] BubbleSort()
@@ -444,15 +438,8 @@ namespace Bussen
             //Denna metod ska anropa en passagerares metod för hur de reagerar om man petar på dom (eng: Poke)
             //Som ni kan läsa i projektbeskrivningen så får detta beteende baseras på ålder och kön
 
-            Console.WriteLine("Passengers in the buss are the following");
-            Console.WriteLine();
-            foreach (Passenger p in passagerare)
-            {
-                if (p != null)
-                {
-                    Console.WriteLine("Name: " + p.name.ToString() + ", Position: " + p.id.ToString());
-                }
-            }
+            PrintPassengerList();
+
             int posToPoke = -1;
             while (posToPoke == -1)
             {
@@ -477,21 +464,25 @@ namespace Bussen
                         if (p.age < 10)
                         {
                             Console.WriteLine("The passenger is a child and starts to cry");
+                            return;
                         }
                         //  OM PASSAGERAREN ÄR MELLAN 10 OCH 20 ÅR
                         else if (p.age >= 10 && p.age < 20)
                         {
                             Console.WriteLine("The passenger is a teenager and gets angry");
+                            return;
                         }
                         //  OM PASSAGERAREN ÄR MELLAN 20 OCH 60 ÅR
                         else if (p.age >= 20 && p.age < 60)
                         {
                             Console.WriteLine("The passenger is an adult and gets annoyed");
+                            return;
                         }
                         //  OM PASSAGERAREN ÄR ÖVER 60 ÅR
                         else if (p.age >= 60)
                         {
                             Console.WriteLine("The passenger is an elder and gets scared");
+                            return;
                         }
                     }
                 }
@@ -513,19 +504,8 @@ namespace Bussen
             //Då finns aldrig någon tom plats mellan passagerare.
 
 
-            //  SKRIV UT TEXT FÖR ATT VISA ALLA PASSAGERARE
-            Console.WriteLine("Passengers in the buss are the following");
+            PrintPassengerList();
             Console.WriteLine();
-            //  LOOPA IGENOM BUSSARRAYEN OCH SKRIV UT ALLA PASSAGERARE
-            foreach (Passenger p in passagerare)
-            {
-                if (p != null)
-                {
-                    Console.WriteLine("Name: " + p.name.ToString() + ", Position: " + p.id.ToString());
-                }
-            }
-            Console.WriteLine();
-
             //  SKAPA EN VARIABEL FÖR VILKEN PASSAGERARE SOM SKA LÄMNA BUSS
             int posToLeave = -1;
             //  LOOPA TILLS ANVÄNDAREN HAR LÄST IN ETT KORREKT VÄRDE
@@ -591,6 +571,20 @@ namespace Bussen
 
                     //  LÄGG TILL PASSAGERAREN I BUSSARRAYEN PÅ SAMMA POSITION SOM DESS ID
                     passagerare[id] = newPassenger;
+                }
+            }
+        }
+        private void PrintPassengerList()
+        {
+            //  SKRIV UT TEXT FÖR ATT VISA ALLA PASSAGERARE
+            Console.WriteLine("Passengers in the buss are the following");
+            Console.WriteLine();
+            //  LOOPA IGENOM BUSSARRAYEN OCH SKRIV UT ALLA PASSAGERARE
+            foreach (Passenger p in passagerare)
+            {
+                if (p != null)
+                {
+                    Console.WriteLine("Name: " + p.name.ToString() + ", Position: " + p.id.ToString());
                 }
             }
         }
